@@ -22,3 +22,11 @@ The live Site is private to the owner. Sharing with kitchen staff must be config
 GitHub stores the source. GitHub Pages alone cannot run the server APIs, D1 or R2. For another hosting platform, configure these bindings, migrate the SQL in `drizzle/`, and add authentication before opening access.
 
 Install with the project's pnpm version and lockfile. Run `pnpm exec tsc --noEmit` to check types. Use the Sites build helper for the configured managed environment, or `pnpm run build` in a configured portable checkout. Never commit runtime data, secrets, `.wrangler`, `.sites-runtime` or build outputs.
+
+## Installed PWA
+
+The same original kiosk mark is used for 192px/512px app icons, a maskable icon, the Apple touch icon and favicon. The web manifest supports standalone installation and shortcuts for POS and Kitchen. A Pasang POS button uses the browser installation prompt where available, with Safari instructions for iOS.
+
+The service worker caches only the offline notice and public icons. It never caches API responses, customer records, orders or authenticated HTML. Payments and edits require internet; disconnected actions are disabled and the offline notice does not claim transactions have been saved.
+
+UI improvements include labelled mobile bottom navigation, a floating cart shortcut, larger touch controls, menu search/filters and thumbnails, order reset confirmation, payment item summary, kitchen sync status, success messages and keyboard focus handling for POS dialogs.
